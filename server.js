@@ -37,7 +37,15 @@ app.post('/send-receipt', (req, res) => {
         res.send('Receipt Sent');
     });
 });
+const path = require('path');
 
+// This tells Express to serve all your static files (html, css, js)
+app.use(express.static(__dirname));
+
+// This specifically tells Express to send index.html when someone visits "/"
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Lumora engine running on port ${PORT}`);
