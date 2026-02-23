@@ -1,0 +1,27 @@
+{
+  "name": "lumora",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000L\u0000u\u0000m\u0000o\u0000r\u0000a\u0000-\u0000C\u0000a\u0000r\u0000-\u0000C\u0000a\u0000r\u0000e\u0000\r\u0000 \u0000",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crwcln/Lumora-Car-Care.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crwcln/Lumora-Car-Care/issues"
+  },
+  "homepage": "https://github.com/crwcln/Lumora-Car-Care#readme",
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "nodemailer": "^8.0.1",
+    "stripe": "^20.3.1"
+  }
+}
