@@ -31,7 +31,6 @@ app.post('/create-payment-intent', async (req, res) => {
 app.post('/send-receipt', async (req, res) => {
     const { email, total, items } = req.body;
 
-    // Use Environment Variables for security
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: { 
@@ -58,10 +57,11 @@ app.post('/send-receipt', async (req, res) => {
 
     try {
         await transporter.sendMail(mailOptions);
+        console.log("Email sent successfully to:", email);
         res.status(200).send('Receipt Sent');
     } catch (error) {
-        console.error("Mail Error:", error);
-        res.status(500).send('Failed to send email');
+        console.error("DETAILED MAIL ERROR:", error.message);
+        res.status(500).send('Email failed: ' + error.message);
     }
 });
 
@@ -69,12 +69,4 @@ app.post('/send-receipt', async (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Lumora engine running on port ${PORT}`);
-    
-try {
-    await transporter.sendMail(mailOptions);
-    console.log("Email sent successfully to:", email);
-    res.status(200).send('Receipt Sent');
-} catch (error) {
-    console.error("DETAILED MAIL ERROR:", error.message); // This will show the exact reason in Render logs
-    res.status(500).send('Email failed: ' + error.message);
-}
+});
