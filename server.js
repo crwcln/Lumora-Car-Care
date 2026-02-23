@@ -69,7 +69,7 @@ app.post('/send-receipt', async (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Lumora engine running on port ${PORT}`);
-});\// Inside app.post('/send-receipt', ...)
+    
 try {
     await transporter.sendMail(mailOptions);
     console.log("Email sent successfully to:", email);
